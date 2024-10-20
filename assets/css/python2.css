@@ -1,0 +1,80 @@
+body{
+  background-color: black;
+}
+
+.container1 {
+  background: linear-gradient(0deg, rgb(245, 233, 99) 0%, rgb(26, 199, 199) 100%);
+
+  margin-top: 40px;
+  margin-left: 150px;
+  margin-right: 150px;
+
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+
+  padding: 2%;
+
+  display: flex;
+  align-items:start;
+}
+
+.imagen {
+  width: auto; /* Tamaño de la imagen */
+  margin-top: 40px;
+  margin-right: 20px; /* Separación entre imagen y texto */
+}
+
+.imagen:hover {
+  transform: scale(1.1);
+  transition: all 1s ease;
+}
+
+.texto {
+  font-size: 20px;
+  font-family:monospace;
+  display: inline-block; /* Asegura que el texto se pueda animar correctamente */
+  overflow: hidden; /* Esconde el texto que no ha sido "escrito" */
+  white-space:normal; /* Evita saltos de línea */
+  border-right: 4px solid black; /* Crea un cursor de escritura */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  max-width: 750px; /* Ajusta el ancho máximo según sea necesario */
+  animation: typing 1.8s steps(800, end), blink-caret 0.75s step-end infinite; /* Aplica la animación de escritura y parpadeo */
+}
+
+@keyframes typing {
+  from {
+      width: 0; /* Comienza desde 0 */
+  }
+  to {
+      width: 100%; /* Finaliza en el 100% del ancho del contenido */
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+      border-color: transparent; /* El cursor está transparente al inicio y final */
+  }
+  50% {
+    border-color: rgb(119, 119, 119); /* El cursor parpadea al color original */
+  }
+}
+
+.container2 {
+  background-color: hsl(0, 6%, 84%);
+  margin-top: 40px;
+
+  justify-content: center;
+
+  padding: 1%;
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: 0 0 10px hsl(0, 6%, 84%)
+}
+
+.imagen2 {
+  width: 60%; /* Tamaño de la imagen */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(168, 166, 166)
+}

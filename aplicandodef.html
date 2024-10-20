@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación CSS</title>
+
+   <!-- Cargar los archivos CSS y JS de CodeMirror -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/matchbrackets.min.js"></script>
+
+   <!-- Cargar Brython -->
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/python3.css">  
+    
+    <style>
+        .CodeMirror {
+            height: auto;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+
+<body onload="brython()">
+
+<header class="navbar">
+    <div class="logo"> Presentación Python: 'Def'</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">¿Qué es Python?</a></li>
+            <li><a href="comandodef.html">Comando 'def'</a></li>
+            <li><a href="aplicandodef.html">Aplicando 'def'</a></li>
+            <li><a href="materialcomplementario.html">+Material</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="pagina">
+
+<div class="container1">
+<h2>Entorno de desarrollo integrado (IDE) de Python .............</h2>
+<textarea id="python-editor" name="code">
+# Escribe tu código Python aquí
+print("Hola, Mundo!")
+
+
+
+
+
+
+
+</textarea>
+<br>
+<button id="execute-btn">Ejecutar</button>
+
+<pre id="output">
+
+
+
+</pre> <!-- Donde aparecerá el resultado -->
+</div>
+
+<aside class="barralateral">
+    <div class="sidebar-item">
+        <h3>Funciones en Python</h3>
+        <p>
+            Anteriormente hemos usado funciones nativas que vienen con Python como <strong>len()</strong> para calcular la longitud de un elemento, pero al igual que en otros lenguajes de programación, también podemos definir nuestras propias funciones. Para ello hacemos uso de <strong>def</strong>.
+        </p>
+        <div class="code-container">
+        <pre><code> def nombre_funcion(argumentos):
+        código
+        return retorno</code></pre>
+        </div>
+
+        <p>
+            Es totalmente análogo al clásico <strong>f(x) = y</strong> de las matemáticas. He aquí un ejemplo con una función lineal.
+        </p>
+        <div class="code-container">
+            <pre><code> def f(x):
+        return 2*x
+        y = f(3)
+ print(y) # 6</code></pre>
+            </div>
+
+            <h3>Argumentos de Entrada</h3>
+        <p>
+            Los argumentos por posición o posicionales son la forma más básica e intuitiva de pasar parámetros. Si tenemos una función resta() que acepta dos parámetros, se puede llamar como se muestra a continuación.
+        </p>
+        <div class="code-container">
+            <pre><code> def resta(a, b):
+        return a-b
+ resta(5, 3) # 2</code></pre>
+            </div>
+
+                <p>
+            Otra forma de llamar a una función, es usando el nombre del argumento con = y su valor. El siguiente código hace lo mismo que el código anterior, con la diferencia de que los argumentos no son posicionales.
+        </p>
+        <div class="code-container">
+            <pre><code> def division(a, b):
+        return a*b
+ division(b=4, a=2)</code></pre>
+            </div>
+        <p>
+            Tal vez queramos tener una función con algún parámetro opcional, que pueda ser usado o no dependiendo de diferentes circunstancias. Para ello, lo que podemos hacer es asignar un valor por defecto a la función. En el siguiente caso <strong>C</strong> valdría cero salvo que se indique lo contrario.
+        </p>
+        <div class="code-container">
+            <pre><code> def suma(a, b, c=0):
+        return a+b+c
+ suma(5,5,3) # 13</code></pre>
+            </div>
+        <p>
+            Pero... ¿Y si tuvieramos que trabajar con argumentos de longitud variable? Por suerte, Python tiene una herramienta muy potente. Si declaramos un argumento con *, esto hará que el argumento que se pase sea empaquetado en una tupla de manera automática. No confundir * con los punteros en otros lenguajes de programación, no tiene nada que ver.
+        </p>
+<div class="code-container">
+    <pre><code> def suma(*numeros):
+        print(type(numeros))
+        total = 0
+        for n in numeros:
+            total += n
+        return total
+ suma(1, 3, 5, 4) # 13</code></pre>
+    </div>
+        <p>
+            Usando doble ** es posible también tener como parámetro de entrada una lista de elementos almacenados en forma de clave y valor. De igual manera, podemos pasar un diccionario como parámetro de entrada.
+        </p>
+        <div class="code-container">
+            <pre><code> def suma(**kwargs):
+        suma = 0
+        for key, value in kwargs.items():
+            suma += value
+            return suma
+ di = {'a': 10, 'b':20}
+ suma(**di) # 30</code></pre>
+            </div>
+
+            <h3>Conceptos Claves</h3>
+        <ul>
+            <li>Variables Locales y Globales.</li>
+            <li>¿Que hace realmente 'return'?</li>
+            <li>Reutilización de código.</li>
+        </ul>
+    </div>
+
+</aside>
+
+</div>
+
+<!-- Código Brython -->
+<script type="text/python">
+    from browser import document, window
+
+    # Redefinir la función print para mostrar la salida en la página
+    def print(*args):
+        output_element = document["output"]
+        output_element.text = ""
+        for arg in args:
+            output_element.text += str(arg) + " "
+        output_element.text += "\n"
+
+    # Función para ejecutar código Python
+    def runPython(event):
+        document["output"].text = ""  # Limpiar el área de salida
+        code = window.getCodeMirrorValue()  # Llamar a la función JavaScript para obtener el código del editor
+        try:
+            exec(code)  # Ejecutar el código ingresado
+        except Exception as e:
+            document["output"].text = str(e)  # Mostrar cualquier error
+
+    # Asignar la función al botón
+    document["execute-btn"].bind("click", runPython)
+</script>
+
+<!-- Script JavaScript -->
+<script>
+    // Inicializar CodeMirror en el textarea con el resaltado de Python
+    var editor = CodeMirror.fromTextArea(document.getElementById("python-editor"), {
+        mode: "python",
+        lineNumbers: true,
+        matchBrackets: true,
+        indentUnit: 4,
+        tabSize: 4,
+        lineWrapping: true
+    });
+
+    // Función para obtener el código del editor y devolverlo a Brython
+    function getCodeMirrorValue() {
+        return editor.getValue();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #0277BD;
+    color: white;
+    font-family: monospace;
+    font-size: 17px;
+}
+.logo  {
+    font-family: monospace;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration:solid;
+    padding: 10px 10px;
+}
+
+.navbar ul li a:hover {
+    color: #000000;
+    background-color: #ffffff;
+    transition: all 0.6s ease;
+    border-radius: 100px;
+}

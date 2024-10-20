@@ -1,0 +1,78 @@
+body{
+    background-color: black;
+}
+
+.pagina{
+    display: flex;
+}
+
+.barralateral{
+    padding-top: 0%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background: linear-gradient(0deg, rgb(26, 199, 199) 0%, rgb(245, 233, 99) 100%);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
+    
+    height: 560px;
+    overflow-y: scroll; /* Barra lateral solo vertical */
+}
+
+.code-container {
+    background-color: #f4f4f4;
+    color: black;
+    border: 2px solid #ccc;
+    padding-right: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto; /* Para manejar el desbordamiento horizontal si el código es muy largo */
+}
+
+h2 {
+    color: rgb(40, 253, 12);
+    text-align: start;
+    text-decoration:solid;
+    font-family:'Courier New', Courier, monospace;
+    display: inline-block; /* Asegura que el texto se pueda animar correctamente */
+    overflow: hidden; /* Esconde el texto que no ha sido "escrito" */
+    white-space:nowrap; /* Evita saltos de línea */
+    border-right: 4px solid rgb(40, 253, 12); /* Crea un cursor de escritura */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    animation: typing 1.8s steps(800, end), blink-caret 0.75s step-end infinite; /* Aplica la animación de escritura y parpadeo */
+}
+
+@keyframes typing {
+    from {
+        width: 0; /* Comienza desde 0 */
+    }
+    to {
+        width: 100%; /* Finaliza en el 100% del ancho del contenido */
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent; /* El cursor está transparente al inicio y final */
+    }
+    50% {
+        border-color:  rgb(40, 253, 12); /* El cursor parpadea al color original */
+    }
+}
+
+
+.container1 {
+    margin-left: 20px;
+    padding: 2%;
+
+    display:flex;
+    flex-direction: column;
+
+}
+
+#execute-btn{
+    padding: 0.5%;
+}
+
+#output{
+    color: rgb(40, 253, 12);
+}
