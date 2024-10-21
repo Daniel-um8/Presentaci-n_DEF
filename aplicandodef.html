@@ -105,7 +105,7 @@ print("Hola, Mundo!")
         </p>
         <div class="code-container">
             <pre><code> def division(a, b):
-        return a*b
+        return a/b
  division(b=4, a=2)</code></pre>
             </div>
         <p>
@@ -136,7 +136,7 @@ print("Hola, Mundo!")
         suma = 0
         for key, value in kwargs.items():
             suma += value
-            return suma
+        return suma
  di = {'a': 10, 'b':20}
  suma(**di) # 30</code></pre>
             </div>
@@ -160,7 +160,7 @@ print("Hola, Mundo!")
     # Redefinir la función print para mostrar la salida en la página
     def print(*args):
         output_element = document["output"]
-        output_element.text = ""
+        output_element.text += "\n"
         for arg in args:
             output_element.text += str(arg) + " "
         output_element.text += "\n"
